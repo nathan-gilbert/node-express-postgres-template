@@ -1,10 +1,12 @@
+const config = require("config");
+
 const Pool = require("pg").Pool;
 const pool = new Pool({
-  user: "",
-  host: "localhost",
-  database: "node-demo",
-  password: "",
-  port: 5432,
+  user: config.get("user"),
+  host: config.get("host"),
+  database: config.get("database"),
+  password: config.get("password"),
+  port: config.get("db-port"),
 });
 
 function getUsers(_, response) {

@@ -1,0 +1,9 @@
+{
+  "user": "postgres",
+  "password": "",
+  "host": "localhost",
+  "db-port": 5432,
+  "database": "node-demo",
+  "migrations-dir": "database/migrations",
+  "server-port": 8080
+}

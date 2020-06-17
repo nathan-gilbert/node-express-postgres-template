@@ -1,7 +1,8 @@
-const http = require('http');
-const app = require('../server');
+const http = require("http");
+const config = require("config");
+const app = require("../server");
 
-const port = 8080;
+const port = config.get("server-port");
 app.set('port', port);
 
 const server = http.createServer(app);
