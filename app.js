@@ -1,6 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+const db = require("./queries");
 
 // Set up the express app
 const app = express();
@@ -15,5 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });
+
+app.get("/users", db.getUsers);
+app.get("/users/:id", db.getUserById);
 
 module.exports = app;
