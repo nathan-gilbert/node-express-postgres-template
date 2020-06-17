@@ -4,6 +4,7 @@
   "description": "A simple template for building APIs using Node, Express and Postgres",
   "main": "index.js",
   "scripts": {
+    "migrate": "node-pg-migrate",
     "start:dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
