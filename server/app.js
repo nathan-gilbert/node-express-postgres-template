@@ -1,7 +1,8 @@
 const express = require("express");
+const http = require("http");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
-const db = require("./queries");
+const db = require("../database/queries");
 
 // Set up the express app
 const app = express();
