@@ -21,13 +21,13 @@
   "homepage": "https://github.com/nathan-gilbert/node-express-postgres-template#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "config": "^3.3.1",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "node-pg-migrate": "^5.1.1",
     "pg": "^8.2.1"
   },
   "devDependencies": {
-    "config": "^3.3.1",
     "nodemon": "^2.0.4"
   }
 }
