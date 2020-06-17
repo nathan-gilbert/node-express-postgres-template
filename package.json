@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "migrate": "node-pg-migrate",
-    "start:dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,7 +25,5 @@
     "node-pg-migrate": "^5.1.1",
     "pg": "^8.2.1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
+  "devDependencies": {}
 }
