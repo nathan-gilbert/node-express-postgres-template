@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "nodemon ./bin/startserver",
     "migrate": "node-pg-migrate -m database/migrations",
-    "test": "jest"
+    "test": "jest --testTimeout=10000",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
