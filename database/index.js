@@ -33,7 +33,7 @@ function createUser(request, response) {
   const { name, email } = request.body;
 
   pool.query(
-    "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING id",
+    "INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *",
     [name, email],
     (error, result) => {
       if (error) {
@@ -47,34 +47,31 @@ function createUser(request, response) {
 function updateUser(request, response) {
   const id = parseInt(request.params.id);
   const { name, email } = request.body;
-
   pool.query(
-    "UPDATE users SET name = $1, email = $2 WHERE id = $3",
+    "UPDATE users SET name = $1, email = $2 WHERE id = $3 RETURNING *",
     [name, email, id],
     (error, result) => {
       if (error) {
         throw error;
       }
+      response.status(200).json(result.rows);
     }
   );
-
-  pool.query("SELECT * FROM users WHERE id = $1", [id], (error, results) => {
-    if (error) {
-      throw error;
-    }
-    response.status(200).json(results.rows);
-  });
 }
 
 function deleteUser(request, response) {
   const id = parseInt(request.params.id);
 
-  pool.query("DELETE FROM users WHERE id = $1", [id], (error, result) => {
-    if (error) {
-      throw error;
+  pool.query(
+    "DELETE FROM users WHERE id = $1 RETURNING *",
+    [id],
+    (error, result) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(result.row);
     }
-    response.status(200).json(result.row);
-  });
+  );
 }
 
 module.exports = {
