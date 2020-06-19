@@ -7,6 +7,7 @@ A simple template for building APIs using Node, Express and Postgres
 - create db: `createdb node-demo`
 - run migrations (in fish shell): `env DATABASE_URL=postgres://localhost:5432/node-demo npm run migrate up`
 - run the server `npm run start:dev`
+- run the unit tests `npm test`
 
 ## Resources
 
