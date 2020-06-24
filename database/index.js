@@ -7,6 +7,7 @@ const pool = new Pool({
   database: config.get("database"),
   password: config.get("password"),
   port: config.get("db-port"),
+  max: config.get("max"),
 });
 
 function getUsers(_, response) {

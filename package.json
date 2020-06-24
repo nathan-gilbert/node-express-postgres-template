@@ -7,7 +7,7 @@
     "start:dev": "nodemon ./bin/startserver",
     "migrate": "node-pg-migrate -m database/migrations",
     "pretest": "dropdb node-demo-test; createdb node-demo-test; DATABASE_URL=postgres://localhost:5432/node-demo-test npm run migrate up",
-    "test": "jest --testTimeout=10000",
+    "test": "jest --detectOpenHandles",
     "coverage": "jest --coverage"
   },
   "repository": {
