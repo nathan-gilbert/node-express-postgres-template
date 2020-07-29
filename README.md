@@ -30,5 +30,6 @@ Long running tasks:
 
 ## TODO
 
+- Convert to Typescript
 - Need to mock and/or create / reset a database for testing
 - Add tests for endpoints
