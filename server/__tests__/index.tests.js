@@ -1,7 +1,7 @@
-const request = require("supertest");
-const app = require("../index");
+const request = require('supertest')
+const app = require('../index')
 
-describe("Index endpoint", () => {
+describe('Index endpoint', () => {
   /*
   afterAll( () => {
     var connectionString =
@@ -12,16 +12,16 @@ describe("Index endpoint", () => {
   });
   */
 
-  it("should return template text", async (done) => {
-    const res = await request(app).get("/api");
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty("info");
-    done();
-  });
+  it('should return template text', async (done) => {
+    const res = await request(app).get('/api')
+    expect(res.statusCode).toEqual(200)
+    expect(res.body).toHaveProperty('info')
+    done()
+  })
 
-  it("should return all users", async (done) => {
-    const res = await request(app).get("/api/users");
-    expect(res.statusCode).toEqual(200);
-    done();
-  });
-});
+  it('should return all users', async (done) => {
+    const res = await request(app).get('/api/users')
+    expect(res.statusCode).toEqual(200)
+    done()
+  })
+})
