@@ -7,10 +7,10 @@ A simple template for building APIs using Node, Express and Postgres
 - install postgres: `brew install postgresql`
 - create db: `createdb node-demo`
 - run migrations (in fish shell): `env DATABASE_URL=postgres://localhost:5432/node-demo npm run migrate up`
-- run the server `npm run start:dev`
-- hit the users endpoint `curl -X GET http://localhost:8080/api/users`
+- run the server: `npm run start:dev`
+- hit the users endpoint: `curl -X GET http://localhost:8080/api/users`
 - create test db: `createdb node-demo-test`
-- run the unit tests `npm run test`
+- run the unit tests: `npm run test`
 - get the test coverage stats: `npm run coverage`
 - compile TypeScript: `tsc`
 - lint TypeScript: `tsc --pretty`
