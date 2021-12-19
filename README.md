@@ -14,6 +14,7 @@ A simple template for building APIs using Node, Express and Postgres
 - get the test coverage stats: `npm run coverage`
 - compile TypeScript: `tsc`
 - lint TypeScript: `tsc --pretty`
+- upgrade npm packages: `ncu`
 
 ## Resources
 
