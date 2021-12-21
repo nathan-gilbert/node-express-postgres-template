@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./bin/startserver",
+    "build": "tsc --build",
     "lint": "./node_modules/eslint/bin/eslint.js . --ext .js,.ts",
     "migrate": "node-pg-migrate -m database/migrations",
     "pretest": "dropdb node-demo-test; createdb node-demo-test; DATABASE_URL=postgres://localhost:5432/node-demo-test npm run migrate up",
