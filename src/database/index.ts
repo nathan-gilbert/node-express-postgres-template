@@ -1,6 +1,7 @@
-const config = require('config')
+import { config } from 'config'
 
-const { Pool } = require('pg')
+import { Pool } from 'pg'
+
 const pool = new Pool({
   user: config.get('user'),
   host: config.get('host'),
@@ -10,7 +11,12 @@ const pool = new Pool({
   max: config.get('max'),
 })
 
-function getUsers(_, response) {
+/**
+ *
+ * @param _
+ * @param response
+ */
+export function getUsers(_, response) {
   pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
     if (error) {
       throw error
@@ -19,7 +25,12 @@ function getUsers(_, response) {
   })
 }
 
-function getUserById(request, response) {
+/**
+ *
+ * @param request
+ * @param response
+ */
+export function getUserById(request, response) {
   const id = parseInt(request.params.id)
 
   pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
@@ -30,7 +41,12 @@ function getUserById(request, response) {
   })
 }
 
-function createUser(request, response) {
+/**
+ *
+ * @param request
+ * @param response
+ */
+export function createUser(request, response) {
   const { name, email } = request.body
 
   pool.query(
@@ -45,7 +61,12 @@ function createUser(request, response) {
   )
 }
 
-function updateUser(request, response) {
+/**
+ *
+ * @param request
+ * @param response
+ */
+export function updateUser(request, response) {
   const id = parseInt(request.params.id)
   const { name, email } = request.body
   pool.query(
@@ -60,7 +81,12 @@ function updateUser(request, response) {
   )
 }
 
-function deleteUser(request, response) {
+/**
+ *
+ * @param request
+ * @param response
+ */
+export function deleteUser(request, response) {
   const id = parseInt(request.params.id)
 
   pool.query(
@@ -73,12 +99,4 @@ function deleteUser(request, response) {
       response.status(200).json(result.row)
     }
   )
-}
-
-module.exports = {
-  getUserById,
-  getUsers,
-  createUser,
-  updateUser,
-  deleteUser,
 }
