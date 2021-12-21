@@ -1,7 +1,3 @@
-/* eslint-disable camelcase */
-
-exports.shorthands = undefined
-
 exports.up = (pgm) => {
   pgm.createTable('users', {
     id: 'id',
@@ -30,5 +26,3 @@ exports.up = (pgm) => {
   })
   pgm.createIndex('posts', 'userId')
 }
-
-exports.down = (pgm) => {}

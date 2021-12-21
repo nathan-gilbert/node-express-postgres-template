@@ -9,7 +9,7 @@ import {
   deleteUser,
 } from '../database'
 
-const app = express()
+export const app = express()
 
 // Log requests to the console.
 app.use(logger('dev'))
@@ -27,5 +27,3 @@ app.get('/api/users/:id', getUserById)
 app.post('/api/users', createUser)
 app.put('/api/users/:id', updateUser)
 app.delete('/api/users/:id', deleteUser)
-
-module.exports = app
