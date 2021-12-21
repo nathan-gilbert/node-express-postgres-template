@@ -1,16 +1,14 @@
 import { request } from 'supertest'
-import { app } from '..'
+import app from '../BackendApp'
 
 describe('Index endpoint', () => {
-  /*
-  afterAll( () => {
+  afterAll(() => {
     var connectionString =
-      "User ID=;Password=;Host=localhost;Port=5432;Database=node-demo-test;";
+      'User ID=;Password=;Host=localhost;Port=5432;Database=node-demo-test;'
     pg.connect(connectionString, function (err, client) {
-      client.end();
-    });
-  });
-  */
+      client.end()
+    })
+  })
 
   it('should return template text', async (done) => {
     const res = await request(app).get('/api')

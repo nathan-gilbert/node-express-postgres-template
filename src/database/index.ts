@@ -1,6 +1,6 @@
 import { config } from 'config'
-
 import { Pool } from 'pg'
+import { StatusCodes } from 'http-status-codes'
 
 const pool = new Pool({
   user: config.get('user'),
@@ -21,7 +21,7 @@ export function getUsers(_, response) {
     if (error) {
       throw error
     }
-    response.status(200).json(results.rows)
+    response.status(StatusCodes.OK).json(results.rows)
   })
 }
 
@@ -31,13 +31,13 @@ export function getUsers(_, response) {
  * @param response
  */
 export function getUserById(request, response) {
-  const id = parseInt(request.params.id)
+  const id = parseInt(request.params.id, 10)
 
   pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
-    response.status(200).json(results.rows)
+    response.status(StatusCodes.OK).json(results.rows)
   })
 }
 
@@ -56,7 +56,7 @@ export function createUser(request, response) {
       if (error) {
         throw error
       }
-      response.status(201).json(result.rows)
+      response.status(StatusCodes.CREATED).json(result.rows)
     }
   )
 }
@@ -67,7 +67,7 @@ export function createUser(request, response) {
  * @param response
  */
 export function updateUser(request, response) {
-  const id = parseInt(request.params.id)
+  const id = parseInt(request.params.id, 10)
   const { name, email } = request.body
   pool.query(
     'UPDATE users SET name = $1, email = $2 WHERE id = $3 RETURNING *',
@@ -76,7 +76,7 @@ export function updateUser(request, response) {
       if (error) {
         throw error
       }
-      response.status(200).json(result.rows)
+      response.status(StatusCodes.OK).json(result.rows)
     }
   )
 }
@@ -87,16 +87,12 @@ export function updateUser(request, response) {
  * @param response
  */
 export function deleteUser(request, response) {
-  const id = parseInt(request.params.id)
+  const id = parseInt(request.params.id, 10)
 
-  pool.query(
-    'DELETE FROM users WHERE id = $1 RETURNING *',
-    [id],
-    (error, result) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(result.row)
+  pool.query('DELETE FROM users WHERE id = $1 RETURNING *', [id], (error) => {
+    if (error) {
+      throw error
     }
-  )
+    response.status(StatusCodes.NO_CONTENT)
+  })
 }
