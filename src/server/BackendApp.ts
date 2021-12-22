@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Express } from 'express'
 import logger from 'morgan'
 import bodyParser from 'body-parser'
 import {
@@ -9,21 +9,33 @@ import {
   deleteUser,
 } from '../database'
 
-export const app = express()
+export default class BackendApp {
+  app: Express
 
-// Log requests to the console.
-app.use(logger('dev'))
+  constructor() {
+    this.app = express()
+    this.middleware()
+    this.routes()
+  }
 
-// Parse incoming requests data (https://github.com/expressjs/body-parser)
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+  middleware() {
+    // Log requests to the console.
+    this.app.use(logger('dev'))
+  }
 
-app.get('/api', (_, response) => {
-  response.json({ info: 'Node.js, Express, and Postgres API' })
-})
+  routes() {
+    // Parse incoming requests data (https://github.com/expressjs/body-parser)
+    this.app.use(bodyParser.json())
+    this.app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/api/users', getUsers)
-app.get('/api/users/:id', getUserById)
-app.post('/api/users', createUser)
-app.put('/api/users/:id', updateUser)
-app.delete('/api/users/:id', deleteUser)
+    this.app.get('/api', (_, response) => {
+      response.json({ info: 'Node.js, Express, and Postgres API' })
+    })
+
+    this.app.get('/api/users', getUsers)
+    this.app.get('/api/users/:id', getUserById)
+    this.app.post('/api/users', createUser)
+    this.app.put('/api/users/:id', updateUser)
+    this.app.delete('/api/users/:id', deleteUser)
+  }
+}
