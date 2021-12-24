@@ -1,9 +1,0 @@
-const http = require("http");
-const config = require("config");
-const app = require("../server");
-
-const port = config.get("server-port");
-app.set('port', port);
-
-const server = http.createServer(app);
-server.listen(port);

@@ -7,5 +7,6 @@ const config: Config.InitialOptions = {
   automock: true,
   collectCoverage: true,
   coverageReporters: ['text', 'lcov', 'text-summary'],
+  coveragePathIgnorePatterns: ['/node_modules/'],
 }
 export default config

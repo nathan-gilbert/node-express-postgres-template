@@ -1,13 +1,13 @@
 {
   "name": "node-express-postgres-template",
   "version": "1.0.0",
-  "description": "A simple template for building APIs using Node, Express and Postgres",
+  "description": "A simple template for building APIs using Typescript, Node, Express and Postgres",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./bin/startserver",
+    "start:dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/BackendApp.ts",
     "build": "tsc --build",
     "lint": "./node_modules/eslint/bin/eslint.js . --ext .js,.ts",
-    "migrate": "node-pg-migrate -m database/migrations",
+    "migrate": "node-pg-migrate -m src/database/migrations",
     "pretest": "dropdb node-demo-test; createdb node-demo-test; DATABASE_URL=postgres://localhost:5432/node-demo-test npm run migrate up",
     "test": "jest --detectOpenHandles --verbose",
     "coverage": "jest --coverage"
@@ -51,11 +51,5 @@
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
   }
 }
