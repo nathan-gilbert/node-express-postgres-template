@@ -9,8 +9,8 @@ import {
   deleteUser,
 } from '../database'
 
-export default class BackendApp {
-  app: Express
+class BackendApp {
+  public app: Express
 
   constructor() {
     this.app = express()
@@ -39,3 +39,5 @@ export default class BackendApp {
     this.app.delete('/api/users/:id', deleteUser)
   }
 }
+
+export default new BackendApp().app

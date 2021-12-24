@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "module": "es2022",
+    "moduleResolution": "Node",
     "outDir": "./dist",
     "allowJs": false,
     "target": "es5",
