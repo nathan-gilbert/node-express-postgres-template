@@ -1,5 +1,4 @@
 import express, { Express } from 'express'
-import logger from 'morgan'
 import bodyParser from 'body-parser'
 import {
   getUsers,
@@ -14,14 +13,13 @@ class BackendApp {
 
   constructor() {
     this.app = express()
-    this.middleware()
+    // this.middleware()
     this.routes()
   }
 
-  middleware() {
-    // Log requests to the console.
-    this.app.use(logger('dev'))
-  }
+  /*
+  middleware() {}
+  */
 
   routes() {
     // Parse incoming requests data (https://github.com/expressjs/body-parser)
@@ -29,7 +27,8 @@ class BackendApp {
     this.app.use(bodyParser.urlencoded({ extended: true }))
 
     this.app.get('/api', (_, response) => {
-      response.json({ info: 'Node.js, Express, and Postgres API' })
+      console.log('Request received')
+      response.json({ info: 'Node.js, Typescript, Express, and Postgres API' })
     })
 
     this.app.get('/api/users', getUsers)

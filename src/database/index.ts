@@ -1,4 +1,4 @@
-import { config } from 'config'
+import config from 'config'
 import { Pool } from 'pg'
 import { StatusCodes } from 'http-status-codes'
 
