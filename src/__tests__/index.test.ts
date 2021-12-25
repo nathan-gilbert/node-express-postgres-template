@@ -1,6 +1,6 @@
 import request from 'supertest'
 import { StatusCodes } from 'http-status-codes'
-import app from '../BackendApp'
+import app from '..'
 
 describe('Index endpoint', () => {
   it('should return template text', async () => {
