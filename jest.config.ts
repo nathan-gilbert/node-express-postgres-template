@@ -7,8 +7,8 @@ const config: Config.InitialOptions = {
   automock: false,
   collectCoverage: true,
   coverageReporters: ['text', 'lcov', 'text-summary'],
-  coveragePathIgnorePatterns: ['/node_modules/', '.git/', '/dist/'],
-  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  coveragePathIgnorePatterns: ['/node_modules/', '.git/', 'dist/'],
+  moduleFileExtensions: ['ts', 'js'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
@@ -17,6 +17,6 @@ const config: Config.InitialOptions = {
       tsconfig: 'tsconfig.json',
     },
   },
-  testMatch: ['**/__tests__/*.+(ts|tsx|js)'],
+  testMatch: ['**/__tests__/*.+(ts)'],
 }
 export default config
