@@ -1,6 +1,8 @@
 # node-express-postgres-template
 
-A simple template for building APIs using Typescript, Node, Express and Postgres
+A simple template for building APIs using Typescript, Node, Express and
+Postgres. This template includes linting with eslint and prettier. Tests are ran
+with `jest`.
 
 ## Usage
 
