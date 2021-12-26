@@ -27,7 +27,6 @@ class BackendApp {
     this.app.use(bodyParser.urlencoded({ extended: true }))
 
     this.app.get('/api', (_, response) => {
-      console.log('Request received')
       response.json({ info: 'Node.js, Typescript, Express, and Postgres API' })
     })
 

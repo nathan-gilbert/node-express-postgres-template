@@ -9,6 +9,7 @@ const config: Config.InitialOptions = {
   coverageReporters: ['text', 'lcov', 'text-summary'],
   coveragePathIgnorePatterns: ['/node_modules/', '.git/', 'dist/'],
   moduleFileExtensions: ['ts', 'js'],
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
