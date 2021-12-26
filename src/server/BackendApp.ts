@@ -9,7 +9,7 @@ import {
 } from '../database'
 
 class BackendApp {
-  public app: Express
+  app: Express
 
   constructor() {
     this.app = express()

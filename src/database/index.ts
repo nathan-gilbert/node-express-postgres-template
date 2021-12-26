@@ -20,6 +20,13 @@ pool.on('error', (err) => {
 
 /**
  *
+ */
+export function shutdown() {
+  pool.end()
+}
+
+/**
+ *
  * @param _
  * @param response
  */
