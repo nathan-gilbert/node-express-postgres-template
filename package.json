@@ -6,6 +6,7 @@
   "exports": "./dist/index.js",
   "scripts": {
     "start:dev": "nodemon --watch 'src/**/*.ts' --exec 'npm run build && ts-node dist/index.js'",
+    "start:prod": "NODE_ENV=production ts-node dist/index.js",
     "build": "tsc --build",
     "lint": "./node_modules/eslint/bin/eslint.js . --ext .js,.ts",
     "migrate": "node-pg-migrate -m src/database/migrations",
