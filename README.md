@@ -6,6 +6,7 @@ with `jest`.
 
 ## Usage
 
+- Install required packages: `npn install`
 - Install postgres: for macOS: `brew install postgresql`
 - Create the app db: `createdb node-demo`
 - Run migrations (in fish shell): `env DATABASE_URL=postgres://localhost:5432/node-demo npm run migrate up`
@@ -15,7 +16,7 @@ with `jest`.
 - Run the unit tests: `npm run test`
 - Get the test coverage stats: `npm run coverage`
 - Lint: `npm run lint`
-- Upgrade npm packages: `ncu`
+- Upgrade npm packages: `ncu` or `./node_modules/npm-check-updates/build/src/bin/cli.js -u`
 
 ## TODO
 
